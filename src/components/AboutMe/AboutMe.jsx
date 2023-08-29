@@ -1,0 +1,43 @@
+import { forwardRef } from "react";
+import foto from "../../images/profile.jpeg";
+
+const AboutMe = forwardRef((props, ref) => {
+  return (
+    <section className="about" id="student" ref={ref}>
+      <h2 className="about__header text_subtitle underline-pb25">Студент</h2>
+      <div className="about__info">
+        <div className="about__info-description">
+          <h3 className="about__info-title text_title">Никита</h3>
+          <p className="about__info-subtitle">Разработчик, 28 лет</p>
+          <p className="about__info-description text">
+          Я&nbsp;живу в&nbsp;Санкт-Петербурге. 
+          На&nbsp;данный момент работаю барбером, параллельно занимаюсь разработкой.
+          Женат.
+          Увлекаюсь спортом и&nbsp;искусством. Нравится изучать новое. 
+          Учусь в&nbsp;Яндекс.Практикуме на&nbsp;веб-разработчика.
+          </p>
+          <ul className="about__links text">
+            <li>
+              <a href="https://vk.com/haircutterpro" className="link" target="_blank" rel="noreferrer">
+                ВКонтакте
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/prokopenko-nikita-dev" className="link" target="_blank" rel="noreferrer">
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href="https://t.me/nikitaprokopenko" className="link" target="_blank" rel="noreferrer">
+                Telegram
+              </a>
+            </li>
+          </ul>
+        </div>
+        <img className="about__info-image" src={foto} alt="Фотография студента" />
+      </div>
+    </section>
+  );
+});
+
+export default AboutMe;
