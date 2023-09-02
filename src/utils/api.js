@@ -1,4 +1,4 @@
-import { moviesApiAddress, authApiAddress } from "./constants";
+import { MOVIES_API_URL, AUTH_API_URL  } from "./constants";
 
 class Api {
   constructor(moviesApi, authApi) {
@@ -13,22 +13,24 @@ class Api {
     return response.ok ? response.json() : Promise.reject("Ошибка - " + response.message);
   }
 
-  getMovies() {
-    return fetch(`${this._moviesApi}/beatfilm-movies`, {
+  async getMovies() {
+    const response = await fetch(`${this._moviesApi}/beatfilm-movies`, {
       headers: this._headers,
-    }).then(this._handleResponse);
+    });
+    return this._handleResponse(response);
   }
 
-  updateUser({ name, email }) {
-    return fetch(`${this._authApi}/users/me`, {
+  async updateUser({ name, email }) {
+    const response = await  fetch(`${this._authApi}/users/me`, {
       method: "PATCH",
       credentials: "include",
       headers: this._headers,
       body: JSON.stringify({ name, email }),
-    }).then(this._handleResponse);
+    });
+    return this._handleResponse(response);
   }
 }
 
-const api = new Api(moviesApiAddress, authApiAddress);
+const api = new Api( MOVIES_API_URL, AUTH_API_URL );
 
 export default api;

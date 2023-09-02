@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { moviesApiAddress } from "../../utils/constants";
+import { MOVIES_API_URL } from "../../utils/constants";
 
 function MoviesCard({ movie }) {
   const location = useLocation();
@@ -32,7 +32,7 @@ function MoviesCard({ movie }) {
           onClick={handleClickFavorite}
         ></button>
       </div>
-      <img className="card__image" src={`${moviesApiAddress}${imageUrl}`} alt={movie.nameRU} />
+      <img className="card__image" src={`${MOVIES_API_URL}${imageUrl}`} alt={movie.nameRU} />
     </article>
   );
 }

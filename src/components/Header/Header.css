@@ -32,6 +32,7 @@
     display: flex;
     list-style-type: none;
     gap: 20px;
+    align-items: center;
   }
   
   .header__auth-item {
@@ -41,7 +42,6 @@
   .header__link {
     text-decoration: none;
     color: inherit;
-    padding: 8px 15px;
     border-radius: 3px;
     box-sizing: border-box;
   }

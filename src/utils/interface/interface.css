@@ -1,6 +1,8 @@
 .color_primary {
   background-color: #3ddc84;
   color: black !important;
+  padding: 8px 20px 8px 20px;
+  border-radius: 3px;
 }
 
 .color_stack {

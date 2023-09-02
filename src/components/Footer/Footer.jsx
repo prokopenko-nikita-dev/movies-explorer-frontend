@@ -28,16 +28,6 @@ function Footer() {
                   Github
                 </a>
               </li>
-              <li>
-                <a
-                  href="https://vk.com/yandex.practicum"
-                  className="link"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  ВКонтакте
-                </a>
-              </li>
             </ul>
           </nav>
         </div>

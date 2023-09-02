@@ -1,4 +1,4 @@
-import { authApiAddress } from "./constants";
+import { AUTH_API_URL  } from "./constants";
 
 class Auth {
   constructor(address) {
@@ -47,6 +47,6 @@ class Auth {
   }
 }
 
-const auth = new Auth(authApiAddress);
+const auth = new Auth( AUTH_API_URL );
 
 export default auth;

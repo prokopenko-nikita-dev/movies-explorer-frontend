@@ -6,9 +6,11 @@
     display: flex;
     padding-top: 65px;
     gap: 50px;
+    justify-content: space-between;
   }
   
   .about__info-image {
+    object-fit: cover; 
     max-height: 352px;
     max-width: 292px;
     width: 40%;
