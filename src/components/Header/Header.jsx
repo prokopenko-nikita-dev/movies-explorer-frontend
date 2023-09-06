@@ -17,7 +17,6 @@ function Header({ isAuth }) {
     menu.style.display = "";
   };
 
-  r
   return (
     <header className="header">
       <Link to="/">
