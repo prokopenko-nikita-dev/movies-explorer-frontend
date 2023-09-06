@@ -17,6 +17,7 @@ function Header({ isAuth }) {
     menu.style.display = "";
   };
 
+  r
   return (
     <header className="header">
       <Link to="/">
@@ -31,30 +32,18 @@ function Header({ isAuth }) {
                 Главная
               </Link>
             </li>
-            <li
-              className={`header__movies-item ${
-                path === "/movies" && "header__movies-item_selected"
-              }`}
-            >
+            <li className={`header__movies-item ${path === "/movies" && "header__movies-item_selected"}`}>
               <Link to="/movies" className="link" onClick={handleCloseMenu}>
                 Фильмы
               </Link>
             </li>
-            <li
-              className={`header__movies-item ${
-                path === "/saved-movies" && "header__movies-item_selected"
-              }`}
-            >
+            <li className={`header__movies-item ${path === "/saved-movies" && "header__movies-item_selected"}`}>
               <Link to="/saved-movies" className="link" onClick={handleCloseMenu}>
                 Сохранённые фильмы
               </Link>
             </li>
             <li className="header__movies-item">
-              <Link
-                to="/profile"
-                className="header__link-profile color_secondary link"
-                onClick={handleCloseMenu}
-              >
+              <Link to="/profile" className="header__link-profile color_secondary link" onClick={handleCloseMenu}>
                 Аккаунт
               </Link>
             </li>
@@ -65,6 +54,7 @@ function Header({ isAuth }) {
             <div className="header__burger-line"></div>
           </div>
         </nav>
+  
       ) : (
         <nav className="header__navigate">
           <ul className="header__auth text">

@@ -20,6 +20,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({ name: "", email: "" });
 
+
   const [favoriteMovies, setFavoriteMovies] = useState([]);
   const [moviesList, setMoviesList] = useState([]);
 
