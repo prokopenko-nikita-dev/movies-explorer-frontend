@@ -15,11 +15,11 @@ function MoviesCardList({ moviesList, loading }) {
         <Preloader />
       ) : (
         <>
-          <div className="cards__list">
+          <section className="cards__list">
             {moviesList.slice(0, countMovies).map((movie) => (
               <MoviesCard movie={movie} key={movie.id} />
             ))}
-          </div>
+          </section>
 
           {countMovies < moviesList.length && (
             <button className="cards__button text link" onClick={handleClickMoreMovies}>

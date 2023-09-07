@@ -1,5 +1,5 @@
-import successImage from "../../images/success.png";
-import deniedImage from "../../images/denied.png";
+import successImage from "../../images/success.svg";
+import deniedImage from "../../images/denied.svg";
 import { useCallback, useEffect } from "react";
 
 const InfoToolTip = ({ infoToolTip, onClose }) => {

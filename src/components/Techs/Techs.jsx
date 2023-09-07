@@ -6,7 +6,7 @@ const Techs = forwardRef((props, ref) => {
       <h2 className="techs__header text_subtitle">Технологии</h2>
       <div className="techs__info">
         <h3 className="techs__title text_title">7 технологий</h3>
-        <p className="tech__text text">
+        <p className="tech__text">
           На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.
         </p>
       </div>

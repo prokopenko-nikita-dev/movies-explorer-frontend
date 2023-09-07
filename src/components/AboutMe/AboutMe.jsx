@@ -9,14 +9,14 @@ const AboutMe = forwardRef((props, ref) => {
         <div className="about__info-description">
           <h3 className="about__info-title text_title">Никита</h3>
           <p className="about__info-subtitle">Фронтенд-разработчик, 28 лет</p>
-          <p className="about__info-description text">
+          <p className="about__info-description">
           Я&nbsp;живу в&nbsp;Санкт-Петербурге. <br />
           На&nbsp;данный момент работаю барбером, параллельно занимаюсь разработкой.<br />
           Женат.<br />
           Увлекаюсь спортом и&nbsp;искусством. Нравится изучать новое. <br />
           Учусь в&nbsp;Яндекс.Практикуме на&nbsp;веб-разработчика.<br />
           </p>
-          <ul className="about__links text">
+          <ul className="about__links">
             <li>
               <a href="https://github.com/prokopenko-nikita-dev" className="link" target="_blank" rel="noreferrer">
                 GitHub

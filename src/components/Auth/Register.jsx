@@ -26,18 +26,28 @@ function Register({ onRegister, success }) {
   };
 
   return (
-    <div className="auth">
+    <section className="auth">
       <img src={logo} alt="Логотип" className="auth__logo" />
-      <h2 className="auth__title">Добро пожаловать!</h2>
+      <h1 className="auth__title">Добро пожаловать!</h1>
       <form className="auth__form" onSubmit={handleSubmit}>
         <div className="auth__input-container">
-          <Input name="name" title="Имя" onChange={handleChange} error={error.name} />
+          <Input 
+            name="name" 
+            title="Имя" 
+            onChange={handleChange} 
+            error={error.name}
+            placeholder="Ваше имя"
+            minLength="2"
+            maxLength="30" />
           <Input
             type="email"
             name="email"
             title="E-mail"
             onChange={handleChange}
             error={error.email}
+            placeholder="Ваш email"
+            minLength="6"
+            required
           />
           <Input
             type="password"
@@ -45,9 +55,12 @@ function Register({ onRegister, success }) {
             title="Пароль"
             onChange={handleChange}
             error={error.password}
+            placeholder="Придумайте пароль"
+            minLength="6"
+            required
           />
         </div>
-        <button className="auth__submit text">Зарегистрироваться</button>
+        <button type="submit" className="auth__submit text">Зарегистрироваться</button>
       </form>
       <div className="auth__link-container">
         <p className="text color_text">Уже зарегестрированны?</p>
@@ -55,7 +68,7 @@ function Register({ onRegister, success }) {
           Войти
         </Link>
       </div>
-    </div>
+    </section>
   );
 }
 

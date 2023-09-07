@@ -32,6 +32,9 @@ function Login({ onLogin, success }) {
             title="E-mail"
             onChange={handleChange}
             error={error.email}
+            placeholder="Ваш email"
+            minLength="6"
+            required
           />
           <Input
             type="password"
@@ -39,9 +42,12 @@ function Login({ onLogin, success }) {
             title="Пароль"
             onChange={handleChange}
             error={error.password}
+            placeholder="Введите пароль"
+            minLength="6"
+            required
           />
         </div>
-        <button className="auth__submit text">Войти</button>
+        <button type="submit" className="auth__submit text">Войти</button>
         <div className="auth__link-container">
           <p className="text color_text">Ещё не зарегистрированы?</p>
           <Link to="/sign-up" className="auth__link text">

@@ -9,7 +9,7 @@
   .cards__list {
     justify-items: center;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 25px;
     padding-bottom: 50px;
   }
@@ -26,9 +26,18 @@
     align-self: center;
   }
   
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1200px) {
+    .cards__list {
+      grid-template-columns: repeat(2, 1fr);
+    }
     .cards {
       padding: 70px 30px;
+    }
+  }
+
+  @media screen and (max-width: 760px) {
+    .cards__list {
+      grid-template-columns: repeat(1, 1fr);
     }
   }
   

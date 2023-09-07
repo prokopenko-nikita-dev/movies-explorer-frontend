@@ -6,13 +6,13 @@ function SearchForm() {
   }
 
   return (
-    <div className="search color_background">
+    <section className="search ">
       <form className="search__form" onSubmit={handleSubmit}>
         <input type="text" className="search__form-input" placeholder="Фильм" required />
         <button className="search__submit link" type="submit"></button>
       </form>
       <FilterCheckbox />
-    </div>
+    </section>
   );
 }
 

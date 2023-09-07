@@ -119,7 +119,9 @@ function App() {
     return (
       <>
         {header && <Header isAuth={isAuth} />}
-        {children}
+        <main>
+          {children}
+        </main>
         {footer && <Footer />}
       </>
     );

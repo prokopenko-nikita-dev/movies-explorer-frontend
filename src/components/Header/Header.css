@@ -31,8 +31,10 @@
   .header__auth {
     display: flex;
     list-style-type: none;
-    gap: 20px;
+    gap: 30px;
     align-items: center;
+    padding-bottom: 3px;
+    font-size: 12px;
   }
   
   .header__auth-item {
@@ -208,9 +210,10 @@
     }
   
     .header__link {
-      min-width: 54px;
-      padding: 5px 12px;
+      min-width: 34px;
+      padding: 0;
     }
+
     .header__links {
       gap: 14px;
     }

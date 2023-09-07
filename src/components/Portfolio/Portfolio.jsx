@@ -12,7 +12,7 @@ function Portfolio() {
             target="_blank"
             rel="noreferrer"
           >
-            <p className="text_medium">Статичный сайт</p>
+            <p className="portfolio__text">Статичный сайт</p>
             <img src={arrow} alt="Иконка - ссылочная стрелка" />
           </a>
         </li>
@@ -23,7 +23,7 @@ function Portfolio() {
             target="_blank"
             rel="noreferrer"
           >
-            <p className="text_medium">Адаптивный сайт</p>
+            <p className="portfolio__text">Адаптивный сайт</p>
             <img src={arrow} alt="Иконка - ссылочная стрелка" />
           </a>
         </li>
@@ -34,7 +34,7 @@ function Portfolio() {
             target="_blank"
             rel="noreferrer"
           >
-            <p className="text_medium">Одностраничное приложение</p>
+            <p className="portfolio__text">Одностраничное приложение</p>
             <img src={arrow} alt="Иконка - ссылочная стрелка" />
           </a>
         </li>

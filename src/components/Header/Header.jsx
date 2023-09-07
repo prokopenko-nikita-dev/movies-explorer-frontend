@@ -20,12 +20,12 @@ function Header({ isAuth }) {
   return (
     <header className="header">
       <Link to="/">
-        <img src={logo} alt="Логотип" />
+        <img className="link" src={logo} alt="Логотип" />
       </Link>
       {isAuth ? (
         <nav className="header__navigate header__navigate-movies">
           <ul className="header__movies text" ref={menuRef}>
-            <button className="header__burger-close" onClick={handleCloseMenu}></button>
+            <button type="button" className="header__burger-close" onClick={handleCloseMenu}></button>
             <li className={`header__movies-item ${path === "/" && "header__movies-item_selected"}`}>
               <Link to="/" className="link" onClick={handleCloseMenu}>
                 Главная
@@ -47,11 +47,11 @@ function Header({ isAuth }) {
               </Link>
             </li>
           </ul>
-          <div className="header__burger link" onClick={handleOpenMenu}>
+          <button className="header__burger link" onClick={handleOpenMenu}>
             <div className="header__burger-line"></div>
             <div className="header__burger-line"></div>
             <div className="header__burger-line"></div>
-          </div>
+          </button>
         </nav>
   
       ) : (

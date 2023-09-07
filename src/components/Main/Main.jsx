@@ -23,7 +23,7 @@ function Main() {
   }
 
   return (
-    <main className="content">
+    <div className="content">
       <Promo>
         <NavTab handleButtonClick={handleButtonClick} />
       </Promo>
@@ -31,7 +31,7 @@ function Main() {
       <Techs ref={refs.techs} />
       <AboutMe ref={refs.student} />
       <Portfolio />
-    </main>
+    </div>
   );
 }
 
