@@ -21,13 +21,15 @@ function Register({ onRegister, success }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     onRegister(formData).then((isRedirect) => {
-      isRedirect && navigate("/sign-in");
+      isRedirect && navigate("/signin");
     });
   };
 
   return (
     <section className="auth">
-      <img src={logo} alt="Логотип" className="auth__logo" />
+      <Link to="/">
+        <img className="auth__logo link" src={logo} alt="Логотип"/>
+      </Link>
       <h1 className="auth__title">Добро пожаловать!</h1>
       <form className="auth__form" onSubmit={handleSubmit}>
         <div className="auth__input-container">
@@ -37,8 +39,8 @@ function Register({ onRegister, success }) {
             onChange={handleChange} 
             error={error.name}
             placeholder="Ваше имя"
-            minLength="2"
-            maxLength="30" />
+            minlength="2"
+            maxlength="30" />
           <Input
             type="email"
             name="email"
@@ -46,7 +48,7 @@ function Register({ onRegister, success }) {
             onChange={handleChange}
             error={error.email}
             placeholder="Ваш email"
-            minLength="6"
+            minlength="6"
             required
           />
           <Input
@@ -56,15 +58,15 @@ function Register({ onRegister, success }) {
             onChange={handleChange}
             error={error.password}
             placeholder="Придумайте пароль"
-            minLength="6"
+            minlength="6"
             required
           />
         </div>
-        <button type="submit" className="auth__submit text">Зарегистрироваться</button>
+        <button type="submit" className="auth__submit text_submit link">Зарегистрироваться</button>
       </form>
       <div className="auth__link-container">
-        <p className="text color_text">Уже зарегестрированны?</p>
-        <Link to="/sign-in" className="auth__link text">
+        <p className="color_text">Уже зарегестрированны?</p>
+        <Link to="/signin" className="auth__link">
           Войти
         </Link>
       </div>

@@ -8,10 +8,11 @@
 
 .promo__title {
   text-align: center;
-  padding: 130px 150px 100px 150px;
+  padding: 130px 235px 100px 235px;
   font-size: 50px;
   font-weight: 400;
   line-height: 116%;
+  letter-spacing: -2px;
 }
 
 .promo__list {

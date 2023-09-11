@@ -164,14 +164,14 @@ function App() {
           }
         />
         <Route
-          path="/sign-in"
-          element={<Login onLogin={onLogin} success={infoToolTip.success} />}
+          path="/signin"
+          element={<main><Login onLogin={onLogin} success={infoToolTip.success} /></main>}
         />
         <Route
-          path="/sign-up"
-          element={<Register onRegister={onRegister} success={infoToolTip.success} />}
+          path="/signup"
+          element={<main><Register onRegister={onRegister} success={infoToolTip.success} /></main>}
         />
-        <Route path="*" element={<NotFoundPage />} />
+        <Route path="*" element={<main><NotFoundPage /></main>} />
       </Routes>
       <InfoToolTip onClose={onClosePopup} infoToolTip={infoToolTip} />
     </div>

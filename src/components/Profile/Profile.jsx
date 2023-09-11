@@ -17,7 +17,7 @@ function Profile({ user, handleUpdateUser }) {
     <section className="profile">
       <h1 className="profile__title text_medium">Привет, {user.name}!</h1>
       <form action="submit" className="profile__form text">
-        <label className="profile__label underline-pb20">
+        <label className="profile__label underline-profile">
          Имя:
           <input
             name="name"
@@ -41,7 +41,7 @@ function Profile({ user, handleUpdateUser }) {
           Редактировать
         </button>
       </form>
-      <Link to="/sign-in" className="profile__logout link text">
+      <Link to="/" className="profile__logout link text">
         Выйти из аккаунта
       </Link>
     </section>

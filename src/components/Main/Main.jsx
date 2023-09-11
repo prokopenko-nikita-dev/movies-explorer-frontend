@@ -15,7 +15,7 @@ function Main() {
   };
 
   function handleButtonClick(e) {
-    const name = e.target.attributes.name.value;
+    const name = e.target.attributes.id.value;
     const element = refs[name].current;
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });

@@ -3,21 +3,21 @@ const NavTab = ({ handleButtonClick }) => {
       <nav>
         <ul className="promo__list">
           <li
-            name="aboutProject"
+            id="aboutProject"
             className="promo__list-item color_stack text"
             onClick={handleButtonClick}
           >
             О проекте
           </li>
           <li
-            name="techs"
+            id="techs"
             className="promo__list-item color_stack text"
             onClick={handleButtonClick}
           >
             Технологии
           </li>
           <li
-            name="student"
+            id="student"
             className="promo__list-item color_stack text"
             onClick={handleButtonClick}
           >

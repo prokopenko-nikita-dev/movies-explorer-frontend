@@ -67,7 +67,9 @@
 }
 
 .card__favorite_delete {
-  background-image: url(../../images/close.svg);
+  background-image: url(../../images/button_detete_movie.svg);
+  width: 21px;
+  height: 21px;
 }
 
 @media screen and (max-width: 768px) {
@@ -83,7 +85,7 @@
   }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 400px) {
   .card {
     max-width: 300px;
     max-height: 236px;

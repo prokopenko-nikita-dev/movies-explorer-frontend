@@ -81,9 +81,20 @@
   }
   
   @media screen and (max-width: 640px) {
+
+    .profile__form {
+      padding-top: 80px;
+      gap: 16px;
+    }
+
+    
     .profile {
       padding: 70px 30px;
       box-sizing: border-box;
+    }
+
+    .profile__submit {
+      margin-top: 379px;
     }
   }
   

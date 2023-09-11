@@ -4,7 +4,7 @@ function Input({ title, onChange, name, type = "text", error }) {
   const requiredProps = type === "text" ? { minLength: 2, maxLength: 30, required: true } : null;
 
   return (
-    <label className="input-label text color_text">
+    <label className="input-label text_input color_text">
       {title}
       <input
         name={name}
@@ -12,6 +12,7 @@ function Input({ title, onChange, name, type = "text", error }) {
         className={`input ${error && "color_error"}`}
         onChange={onChange}
         {...requiredProps}
+        placeholder={title}
       ></input>
       <span className={`input-error ${error && "input-error_visible"} text`}>{error}</span>
     </label>

@@ -22,7 +22,9 @@ function Login({ onLogin, success }) {
 
   return (
     <section className="auth">
-      <img src={logo} alt="Логотип" className="auth__logo" />
+      <Link to="/">
+        <img className="auth__logo link" src={logo} alt="Логотип" href="/"/>
+      </Link>
       <h2 className="auth__title">Рады видеть!</h2>
       <form className="auth__form" onSubmit={handleSubmit}>
         <div className="auth__input-container">
@@ -33,7 +35,7 @@ function Login({ onLogin, success }) {
             onChange={handleChange}
             error={error.email}
             placeholder="Ваш email"
-            minLength="6"
+            minlength="6"
             required
           />
           <Input
@@ -43,14 +45,14 @@ function Login({ onLogin, success }) {
             onChange={handleChange}
             error={error.password}
             placeholder="Введите пароль"
-            minLength="6"
+            minlength="6"
             required
           />
         </div>
-        <button type="submit" className="auth__submit text">Войти</button>
+        <button type="submit" className="auth__submit-login text_submit link">Войти</button>
         <div className="auth__link-container">
-          <p className="text color_text">Ещё не зарегистрированы?</p>
-          <Link to="/sign-up" className="auth__link text">
+          <p className="color_text">Ещё не зарегистрированы?</p>
+          <Link to="/signup" className="auth__link">
             Регистрация
           </Link>
         </div>

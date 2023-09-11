@@ -8,7 +8,7 @@ function Portfolio() {
         <li className="portfolio__list-item">
           <a
             className="portfolio__link link"
-            href="https://github.com/prokopenko-nikita-dev/how-to-learn"
+            href="https://prokopenko-nikita-dev.github.io/how-to-learn/"
             target="_blank"
             rel="noreferrer"
           >
