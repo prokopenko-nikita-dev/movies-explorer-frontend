@@ -39,8 +39,7 @@ function Register({ onRegister, success }) {
             onChange={handleChange} 
             error={error.name}
             placeholder="Ваше имя"
-            minlength="2"
-            maxlength="30" />
+            required />
           <Input
             type="email"
             name="email"
@@ -49,8 +48,8 @@ function Register({ onRegister, success }) {
             error={error.email}
             placeholder="Ваш email"
             minlength="6"
-            required
-          />
+            maxlenght="30"
+            required />
           <Input
             type="password"
             name="password"
@@ -59,8 +58,8 @@ function Register({ onRegister, success }) {
             error={error.password}
             placeholder="Придумайте пароль"
             minlength="6"
-            required
-          />
+            maxlenght="30"
+            required />
         </div>
         <button type="submit" className="auth__submit text_submit link">Зарегистрироваться</button>
       </form>

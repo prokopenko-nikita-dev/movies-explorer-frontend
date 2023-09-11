@@ -21,7 +21,8 @@ function MoviesCard({ movie }) {
   return (
     <article className="card">
       <div className="card__container">
-      <button
+      <button 
+          type="button"
           className={`card__favorite color_secondary link ${
             isSavedMovies && "card__favorite_delete"
           }`}

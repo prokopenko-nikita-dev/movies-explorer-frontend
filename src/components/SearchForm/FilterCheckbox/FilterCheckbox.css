@@ -50,3 +50,10 @@
   left: 16px;
   background-color: #ffff;
 }
+
+@media screen and (max-width: 375px) {
+  .filter {
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+}

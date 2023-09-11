@@ -35,8 +35,7 @@ function Login({ onLogin, success }) {
             onChange={handleChange}
             error={error.email}
             placeholder="Ваш email"
-            minlength="6"
-            required
+            value
           />
           <Input
             type="password"
@@ -46,7 +45,8 @@ function Login({ onLogin, success }) {
             error={error.password}
             placeholder="Введите пароль"
             minlength="6"
-            required
+            maxlenght="30"
+            value
           />
         </div>
         <button type="submit" className="auth__submit-login text_submit link">Войти</button>

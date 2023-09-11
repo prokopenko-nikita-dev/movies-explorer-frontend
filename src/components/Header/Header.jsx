@@ -50,7 +50,7 @@ function Header({ isAuth }) {
               </Link>
             </li>
             <li className="header__burger-open">
-              <button className="header__burger link" onClick={handleOpenMenu}>
+              <button type="button" className="header__burger link" onClick={handleOpenMenu}>
                 <div className="header__burger-line"></div>
                 <div className="header__burger-line"></div>
                  <div className="header__burger-line"></div>

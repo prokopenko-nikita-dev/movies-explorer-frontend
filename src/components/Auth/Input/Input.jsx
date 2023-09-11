@@ -13,6 +13,7 @@ function Input({ title, onChange, name, type = "text", error }) {
         onChange={onChange}
         {...requiredProps}
         placeholder={title}
+        required
       ></input>
       <span className={`input-error ${error && "input-error_visible"} text`}>{error}</span>
     </label>

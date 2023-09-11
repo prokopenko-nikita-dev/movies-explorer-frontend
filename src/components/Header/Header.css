@@ -98,6 +98,7 @@
   cursor: pointer;
   background-color: #202020;
   border: none;
+  transition: all .8s ease 0s;
 }
 
 .header__item-movies {
@@ -117,6 +118,7 @@
 
 .header__burger-open {
   display: none;
+  transition: all .8s ease 0s;
 }
 
 .burger__close {
@@ -128,6 +130,7 @@
   height: 30px;
   background-position: center;
   background-repeat: no-repeat;
+  transition: all .8s ease 0s;
 }
 
 .burger__close:hover {
@@ -137,6 +140,7 @@
 
 .burger {
   display: none;
+  transition: all .8s ease 0s;
 }
 
 @media screen and (max-width: 768px) {
