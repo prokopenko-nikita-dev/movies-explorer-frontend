@@ -43,6 +43,9 @@
   max-width: 250px;
   width: 100%;
   padding-bottom: 5px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .card__favorite {
@@ -88,10 +91,24 @@
 @media screen and (max-width: 400px) {
   .card {
     max-width: 300px;
-    max-height: 236px;
+    min-height: 199px;
+  }
+
+  .card__container {
+    height: 168px;
+  }
+
+  .card__footer {
+    margin-top: -37px;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .card__title {
     max-width: 210px;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
   }
 }

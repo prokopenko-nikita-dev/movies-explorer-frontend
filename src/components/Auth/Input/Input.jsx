@@ -1,6 +1,6 @@
 import "./Input.css";
 
-function Input({ title, onChange, name, type = "text", error }) {
+function Input({ title, onChange, name, type = "text", error, minLength, maxLength }) {
   const requiredProps = type === "text" ? { minLength: 2, maxLength: 30, required: true } : null;
 
   return (
@@ -11,6 +11,8 @@ function Input({ title, onChange, name, type = "text", error }) {
         type={type}
         className={`input ${error && "color_error"}`}
         onChange={onChange}
+        minLength={minLength}
+        maxLength={maxLength}
         {...requiredProps}
         placeholder={title}
         required

@@ -74,7 +74,7 @@
     font-weight: 400;
     line-height: 150%;
   }
-  
+
   .about__links {
     margin-top: 85px;
   }
@@ -103,6 +103,35 @@
 @media screen and (max-width: 375px) {
   .about {
     padding: 70px 14px 70px 14px;
+  }
+
+  .about__header {
+    letter-spacing: -0.72px;
+    padding-bottom: 26px;
+  }
+
+  .about__info {
+    gap: 37px;
+  }
+
+  .about__info-title {
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.2px;
+  }
+
+  .about__info-description {
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+  }
+
+  .about__links {
+    padding: 0;
+    margin-top: 34px;
   }
 
   .about__info-image {

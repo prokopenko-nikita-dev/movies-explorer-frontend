@@ -44,8 +44,8 @@ function Login({ onLogin, success }) {
             onChange={handleChange}
             error={error.password}
             placeholder="Введите пароль"
-            minlength="6"
-            maxlenght="30"
+            minLength={6}
+            maxLenght={30}
             value
           />
         </div>

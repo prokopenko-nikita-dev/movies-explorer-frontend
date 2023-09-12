@@ -5,13 +5,13 @@ function Footer() {
           Учебный проект Яндекс.Практикум х BeatFilm.
         </h3>
         <div className="footer__row">
-          <p className="text color_text">&#169; 2023</p>
+          <p className="footer__date">&#169; 2023</p>
           <nav>
-            <ul className="footer__list text">
+            <ul className="footer__list">
               <li>
                 <a
                   href="https://practicum.yandex.ru/profile/web"
-                  className="link"
+                  className="footer__link"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -21,7 +21,7 @@ function Footer() {
               <li>
                 <a
                   href="https://github.com/Yandex-Practicum"
-                  className="link"
+                  className="footer__link"
                   target="_blank"
                   rel="noreferrer"
                 >

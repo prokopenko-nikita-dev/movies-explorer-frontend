@@ -31,7 +31,7 @@ function MoviesCard({ movie }) {
       <img className="card__image" src={`${MOVIES_API_URL}${imageUrl}`} alt={movie.nameRU} />
       </div>
       <div className="card__footer">
-          <h2 className="card__title text_subtitle">{movie.nameRU}</h2>
+          <h2 className="card__title">{movie.nameRU}</h2>
           <p className="card__duration text color_text color_background">{`${hours}ч ${minutes}м`}</p>
       </div>
     </article>

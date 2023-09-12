@@ -9,12 +9,14 @@ function Header({ isAuth }) {
 
   const handleOpenMenu = () => {
     const menu = menuRef.current;
-    menu.style.display = "flex";
+    menu.style.opacity = 1;
+    menu.style.transform = 'translateX(0)';
   };
 
   const handleCloseMenu = () => {
     const menu = menuRef.current;
-    menu.style.display = "";
+    menu.style.opacity = 0;
+    menu.style.transform = 'translateX(100%)';
   };
 
   return (

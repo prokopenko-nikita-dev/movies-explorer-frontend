@@ -24,7 +24,9 @@
   background: #343434;
   border-radius: 20px;
   cursor: pointer;
-  box-shadow: 0 4px 4px rgba(50, 50, 71, 0.08), 0 4px 8px rgba(50, 50, 71, 0.06);
+  box-shadow:
+    0 4px 4px rgba(50, 50, 71, 0.08),
+    0 4px 8px rgba(50, 50, 71, 0.06);
 }
 
 .filter__input::before {
@@ -49,6 +51,34 @@
 .filter__input:checked::before {
   left: 16px;
   background-color: #ffff;
+}
+
+@media screen and (max-width: 768px) {
+  .filter {
+    margin-top: 40px;
+  }
+
+  .filter__input {
+    width: 34px;
+    height: 14px;
+  }
+
+  .filter__input::before {
+    width: 14px;
+    height: 14px;
+  }
+
+  .filter__input:checked::before {
+    left: 20px;
+    background-color: #ffff;
+  }
+
+  .filter__label {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+  }
 }
 
 @media screen and (max-width: 375px) {
