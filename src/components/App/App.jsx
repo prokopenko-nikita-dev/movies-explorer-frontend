@@ -16,7 +16,7 @@ import NotFoundPage from "../NotFoundPage";
 import InfoToolTip from "../InfoToolTip";
 
 function App() {
-  const [isAuth, setIsAuth] = useState(true);
+  const [isAuth, setIsAuth] = useState(false);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({ name: "", email: "" });
 
