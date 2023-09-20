@@ -9,6 +9,7 @@ import { Login, Register } from "../Auth";
 
 import api from "../../utils/api";
 import auth from "../../utils/auth";
+import {moviesApi} from "../../utils/MoviesApi";
 
 import SavedMovies from "../SavedMovies";
 import Profile from "../Profile/Profile";
@@ -31,7 +32,7 @@ function App() {
   });
 
   useEffect(() => {
-    api
+    moviesApi
       .getMovies()
       .then((movies) => {
         setMoviesList(movies);
@@ -75,6 +76,7 @@ function App() {
     return auth
       .login(body)
       .then(({ token }) => {
+        localStorage.setItem("jwt", token)
         setIsAuth(true);
         setInfoTooltip({
           message: "Вы успешно вошли!",

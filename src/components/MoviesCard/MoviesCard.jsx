@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { MOVIES_API_URL } from "../../utils/constants";
+import MainApi from "../../utils/MainApi";
 
 function MoviesCard({ movie }) {
   const location = useLocation();
@@ -8,14 +9,17 @@ function MoviesCard({ movie }) {
   const imageUrl = movie.image.formats.thumbnail.url;
   const hours = Math.floor(movie.duration / 60);
   const minutes = movie.duration % 60;
+  const api = new MainApi(localStorage.getItem("jwt"));
 
   function handleClickFavorite(e) {
-    const button = e.target;
-    if (button.classList.contains("card__favorite_active")) {
-      button.classList.remove("card__favorite_active");
-    } else {
-      button.classList.add("card__favorite_active");
-    }
+    // const button = e.target;
+    // if (button.classList.contains("card__favorite_active")) {
+    //   button.classList.remove("card__favorite_active");
+    // } else {
+    //   button.classList.add("card__favorite_active");
+    // }
+
+    api.save(movie)
   }
 
   return (

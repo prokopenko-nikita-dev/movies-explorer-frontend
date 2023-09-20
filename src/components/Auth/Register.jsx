@@ -20,6 +20,7 @@ function Register({ onRegister, success }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(formData);
     onRegister(formData).then((isRedirect) => {
       isRedirect && navigate("/signin");
     });
