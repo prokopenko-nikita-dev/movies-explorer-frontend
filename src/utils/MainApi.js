@@ -1,46 +1,57 @@
 import { AUTH_API_URL } from "./constants";
 
 class MainApi  {
-  constructor(jwt){
-      this.url = AUTH_API_URL;
-      this._headers = {
-          "Content-type": "application/json",
-          authorization: `Bearer ${jwt}`
-        };
+  constructor({ headers, baseUrl }){
+      this._headers = headers;
+      this._baseUrl  = AUTH_API_URL;
   }
 
   _handleResponse(res) {
       return res.ok ? res.json() : Promise.reject("Ошибка - " + res.message);
     }
+
+    updateUser({ name, email }) {
+      return fetch(`${this._baseUrl}/users/me`, {
+        method: 'PATCH',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+        }),
+      }).then(this._handleResponse);
+    }
     
   async getSaved() {
-    const url = this.url;
-    const headers = this._headers;
-      const res = await fetch(`${url}/movies`, {
-        headers: headers,
-      });
-      return this._handleResponse(res);
+    return fetch(`${this._baseUrl}/movies`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        'Content-Type': 'application/json',
+      },
+    }).then(this._handleResponse);
   }
 
-  async save(info) {
-    const url = this.url;
-    const headers = this._headers;
-      const res = await fetch(`${url}/movies`, {
-        method: "POST",
-        headers: headers,
-        body: JSON.stringify(info)
-      });
-      return this._handleResponse(res);
+  async save(body) {
+    return fetch(`${this._baseUrl}/movies`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    }).then(this._handleResponse);
   }
 
   async delete(id) {
-    const url = this.url;
-    const headers = this._headers;
-      const res = await fetch(`${url}/movies/${id}`, {
-        method: "DELETE", 
-        headers: headers,
-      });
-      return this._handleResponse(res);
+    return fetch(`${this._baseUrl}/movies/${id}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        'Content-Type': 'application/json',
+      },
+    }).then(this._handleResponse);
   }
 }
 
