@@ -15,12 +15,14 @@ function SavedMovies() {
     onFilter,
   } = useSearchMovie(api.getSaved.bind(api));
 
+  console.log(searchedFilms)
   return (
     <main className="movies">
         <SearchForm isChecked={filter} handleCheckBox={onFilter} search={search} handleSearch={onSearch} />
-      <MoviesCardList moviesList={searchedFilms} loading={loading} />
+      <MoviesCardList moviesList={searchedFilms} loading={loading} favorites={searchedFilms} />
     </main>
   );
 }
 
 export default SavedMovies;
+

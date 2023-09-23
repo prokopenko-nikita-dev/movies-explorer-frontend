@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import {useCurrentUser} from "../../context/CurrentUserContext";
 
-function Profile({ user, handleUpdateUser }) {
-  const [userInfo, setUserInfo] = useState({ name: user.name, email: user.email });
+function Profile() {
+    const {handleLogout, handleUpdateUser, info} = useCurrentUser();
+
+  const [userInfo, setUserInfo] = useState({ name: info.name, email: info.email });
 
   function handleChange(e) {
     setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
@@ -10,12 +13,13 @@ function Profile({ user, handleUpdateUser }) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    console.log(userInfo)
     handleUpdateUser(userInfo);
   }
 
   return (
     <section className="profile">
-      <h1 className="profile__title text_medium">Привет, {user.name}!</h1>
+      <h1 className="profile__title text_medium">Привет, {info.name}!</h1>
       <form action="submit" className="profile__form text">
         <label className="profile__label underline-profile">
          Имя:
@@ -41,7 +45,7 @@ function Profile({ user, handleUpdateUser }) {
           Редактировать
         </button>
       </form>
-      <Link to="/" className="profile__logout link text">
+      <Link to="/" className="profile__logout link text" onClick={handleLogout}>
         Выйти из аккаунта
       </Link>
     </section>
