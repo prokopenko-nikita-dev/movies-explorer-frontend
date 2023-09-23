@@ -1,15 +1,19 @@
-import { useMemo, useState, useEffect } from "react";
+import {useMemo, useState, useEffect, useCallback} from "react";
 
-export const useSearchMovie = (getMovies) => {
+export const useSearchMovie = (getMovies, withLocalStorage) => {
+    const lss = localStorage.getItem("search") || "";
+    const lsf = localStorage.getItem("filter") === "true";
+
     const[state, setState] = useState([]);
-    const[search, setSearch] = useState("");
-    const[filter, setFilter] = useState(false);
+    const[search, setSearch] = useState(withLocalStorage ? lss : "");
+    const[filter, setFilter] = useState(withLocalStorage ? lsf : false);
+
     const[loading, setLoading] = useState(true);
 
     useEffect(() => {
         function getFilms(){
             setLoading(true);
-            
+
             getMovies()
             .then(res => {
                 setState(res)
@@ -23,7 +27,7 @@ export const useSearchMovie = (getMovies) => {
     const searchedFilms = useMemo(() => {
         if(loading || state.length === 0) {
             return []
-        } 
+        }
         const filteredFilms = [];
         state.forEach(element => {
             const nameRU = element.nameRU.toLowerCase();
@@ -57,16 +61,26 @@ export const useSearchMovie = (getMovies) => {
             }
         });
 
+        localStorage.setItem("filteredFilms", JSON.stringify(filteredFilms));
         return filteredFilms;
-    }, [search, filter, state, loading]); 
+    }, [search, filter, loading]);
 
+    const onSearch = useCallback((value) => {
+        setSearch(value)
+        withLocalStorage && localStorage.setItem("search", value)
+    }, []);
+
+    const onFilter = useCallback((value) => {
+        setFilter(value)
+        withLocalStorage && localStorage.setItem("filter", value)
+    }, [])
 
     return {
         searchedFilms,
         search,
         filter,
         loading,
-        onSearch: setSearch,
-        onFilter: setFilter,
+        onSearch,
+        onFilter,
     }
 }
