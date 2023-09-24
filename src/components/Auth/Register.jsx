@@ -22,7 +22,7 @@ function Register({ onRegister, success }) {
     e.preventDefault();
     console.log(formData);
     onRegister(formData).then((isRedirect) => {
-      isRedirect && navigate("/signin");
+      isRedirect && navigate("/movies");
     });
   };
 

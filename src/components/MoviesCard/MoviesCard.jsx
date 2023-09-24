@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import { MOVIES_API_URL } from "../../utils/constants";
 import MainApi from "../../utils/MainApi";
 
-function MoviesCard({ movie, isFavourite }) {
+function MoviesCard({ movie, isFavourite, handleFavouriteChange, favorites, isFavouritesPage }) {
   const location = useLocation();
   const path = location.pathname;
   const isSavedMovies = path === "/saved-movies";
@@ -31,12 +31,16 @@ function MoviesCard({ movie, isFavourite }) {
       console.log(data)
     api.save(data).then((data) => {
       console.log(data);
+      handleFavouriteChange("ADD", data);
     })
   }
 
   function handleRemoveFavourite() {
-    api.delete(movie._id).then((data) => {
+    console.log(favorites, movie);
+    console.log(movie._id || favorites.find(el => el.movieId === movie.id)._id);
+    api.delete(movie._id || favorites.find(el => el.movieId === movie.id)._id).then((data) => {
       console.log(data);
+      handleFavouriteChange("DELETE", movie.movieId);
     })
   }
 
@@ -52,15 +56,16 @@ function MoviesCard({ movie, isFavourite }) {
         window.open(movie.trailerLink, "_blank");
     }
 
+    const className = `card__favorite color_secondary link ${isFavourite && (isFavouritesPage ? "card__favorite_delete" : "card__favorite_active")}`;
+
+    // isFavouritesPage
     return (
     <article className="card">
       <div className="card__container">
       <button
 
           type="button"
-          className={`card__favorite color_secondary link ${
-              isFavourite && "card__favorite_delete"
-          }`}
+          className={className}
           onClick={handleLikeClick}
         />
       <img className="card__image" src={imageUrl} alt={movie.nameRU} onClick={handleImageClick} />

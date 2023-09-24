@@ -1,8 +1,8 @@
 import { AUTH_API_URL } from "./constants";
 
 class MainApi  {
-  constructor({ headers, baseUrl }){
-      this._headers = headers;
+  constructor(key){
+      this._jwt = key;
       this._baseUrl  = AUTH_API_URL;
   }
 
@@ -10,11 +10,11 @@ class MainApi  {
       return res.ok ? res.json() : Promise.reject("Ошибка - " + res.message);
     }
 
-    updateUser({ name, email }) {
+    updateUser({ name, email}, jwt) {
       return fetch(`${this._baseUrl}/users/me`, {
         method: 'PATCH',
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          Authorization: `Bearer ${jwt}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
@@ -23,11 +23,11 @@ class MainApi  {
         }),
       }).then(this._handleResponse);
     }
-    
+
   async getSaved() {
     return fetch(`${this._baseUrl}/movies`, {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        Authorization: `Bearer ${this._jwt}`,
         'Content-Type': 'application/json',
       },
     }).then(this._handleResponse);
@@ -37,7 +37,7 @@ class MainApi  {
     return fetch(`${this._baseUrl}/movies`, {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        Authorization: `Bearer ${this._jwt}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(body),
@@ -48,7 +48,7 @@ class MainApi  {
     return fetch(`${this._baseUrl}/movies/${id}`, {
       method: 'DELETE',
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        Authorization: `Bearer ${this._jwt}`,
         'Content-Type': 'application/json',
       },
     }).then(this._handleResponse);
@@ -56,4 +56,3 @@ class MainApi  {
 }
 
 export default MainApi;
- 

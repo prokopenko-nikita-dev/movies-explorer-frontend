@@ -30,11 +30,13 @@ class Auth {
     }).then(this._handleResponse);
   }
 
-  authentication() {
+  authentication(jwt) {
     return fetch(`${this._address}/users/me`, {
       method: 'GET',
       credentials: 'include',
-      headers: this._headers
+      headers: {...this._headers,
+        Authorization: `Bearer ${jwt}`
+      }
     }).then(this._handleResponse);
   }
 

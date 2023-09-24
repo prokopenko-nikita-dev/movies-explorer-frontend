@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import {useCurrentUser} from "../../context/CurrentUserContext";
 
-function Profile() {
-    const {handleLogout, handleUpdateUser, info} = useCurrentUser();
+function Profile({onUpdate}) {
+    const {handleLogout, info} = useCurrentUser();
 
   const [userInfo, setUserInfo] = useState({ name: info.name, email: info.email });
 
@@ -12,9 +12,8 @@ function Profile() {
   }
 
   function handleSubmit(e) {
-    e.preventDefault();
-    console.log(userInfo)
-    handleUpdateUser(userInfo);
+    e.preventDefault(); 
+    onUpdate(userInfo); 
   }
 
   return (

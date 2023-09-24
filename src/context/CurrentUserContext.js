@@ -29,7 +29,7 @@ const UserContextProvider = ({ children }) => {
 
     useEffect(() => {
         const jwt = localStorage.getItem("jwt");
-        if (jwt) {
+        if (jwt && !state.name && !state.email) {
             setLoading(true)
 
             auth
@@ -51,7 +51,7 @@ const UserContextProvider = ({ children }) => {
                     setLoading(false)
                 })
         }
-    }, []);
+    }, [state.isAuth]);
     const api = new MainApi(state.token);
 
     function handleUpdateUser(body) {
@@ -67,6 +67,7 @@ const UserContextProvider = ({ children }) => {
         return auth
             .login(body)
             .then((res) => {
+                console.log(res)
                 localStorage.setItem("jwt", res.token)
                 setState({...state, ...res, isAuth: true});
                 console.log(state)

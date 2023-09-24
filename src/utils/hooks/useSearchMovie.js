@@ -63,7 +63,7 @@ export const useSearchMovie = (getMovies, withLocalStorage) => {
 
         localStorage.setItem("filteredFilms", JSON.stringify(filteredFilms));
         return filteredFilms;
-    }, [search, filter, loading]);
+    }, [search, filter, loading, state.length]);
 
     const onSearch = useCallback((value) => {
         setSearch(value)
@@ -75,6 +75,8 @@ export const useSearchMovie = (getMovies, withLocalStorage) => {
         withLocalStorage && localStorage.setItem("filter", value)
     }, [])
 
+    const nothingFound = (!loading && state.length !== 0 && searchedFilms.length === 0);
+
     return {
         searchedFilms,
         search,
@@ -82,5 +84,8 @@ export const useSearchMovie = (getMovies, withLocalStorage) => {
         loading,
         onSearch,
         onFilter,
+        setState,
+        state,
+        nothingFound
     }
 }

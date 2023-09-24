@@ -16,7 +16,7 @@ function Login({ onLogin, success }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     onLogin(formData).then((isRedirect) => {
-      isRedirect && navigate("/");
+      isRedirect && navigate("/movies");
     });
   };
 
