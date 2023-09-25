@@ -1,19 +1,24 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import {useCurrentUser} from "../../context/CurrentUserContext";
+import { useCurrentUser } from "../../context/CurrentUserContext";
 
-function Profile({onUpdate}) {
-    const {handleLogout, info} = useCurrentUser();
+function Profile({ onUpdate }) {
+  const { handleLogout, info } = useCurrentUser();
 
   const [userInfo, setUserInfo] = useState({ name: info.name, email: info.email });
+  const [isDataChanged, setIsDataChanged] = useState(false);
 
   function handleChange(e) {
-    setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setUserInfo({ ...userInfo, [name]: value });
+    setIsDataChanged(value !== info[name]);
   }
 
   function handleSubmit(e) {
-    e.preventDefault(); 
-    onUpdate(userInfo); 
+    e.preventDefault();
+    if (isDataChanged) {
+      onUpdate(userInfo);
+    }
   }
 
   return (
@@ -21,7 +26,7 @@ function Profile({onUpdate}) {
       <h1 className="profile__title text_medium">Привет, {info.name}!</h1>
       <form action="submit" className="profile__form text">
         <label className="profile__label underline-profile">
-         Имя:
+          Имя:
           <input
             name="name"
             type="text"
@@ -40,7 +45,12 @@ function Profile({onUpdate}) {
             onChange={handleChange}
           />
         </label>
-        <button type="submit" className="profile__submit link text" onClick={handleSubmit}>
+        <button
+          type="submit"
+          className={`profile__submit link text ${isDataChanged ? "profile__submit_active" : "profile__submit_inactive"}`}
+          onClick={handleSubmit}
+          disabled={!isDataChanged}
+        >
           Редактировать
         </button>
       </form>
@@ -52,3 +62,4 @@ function Profile({onUpdate}) {
 }
 
 export default Profile;
+

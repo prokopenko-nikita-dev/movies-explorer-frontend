@@ -76,6 +76,10 @@
   justify-content: flex-end;
 }
 
+.header__movies-item {
+  font-weight: 400;
+}
+
 .header__movies-item_selected {
   font-weight: 500;
 }

@@ -7,7 +7,9 @@ export function useResize() {
 
   useEffect(() => {
     function handleResize() {
-      setScreenWidth(getScreenWidth());
+      const val = getScreenWidth()
+      setScreenWidth(val);
+      console.log(val)
     };
 
     window.addEventListener('resize', resizeController, false);
@@ -23,7 +25,7 @@ export function useResize() {
       }
     };
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', resizeController);
   }, [getScreenWidth]);
 
   return screenWidth;

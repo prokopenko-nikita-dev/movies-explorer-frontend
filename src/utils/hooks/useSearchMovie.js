@@ -8,27 +8,41 @@ export const useSearchMovie = (getMovies, withLocalStorage) => {
     const[search, setSearch] = useState(withLocalStorage ? lss : "");
     const[filter, setFilter] = useState(withLocalStorage ? lsf : false);
 
-    const[loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-        function getFilms(){
-            setLoading(true);
-
-            getMovies()
-            .then(res => {
-                setState(res)
-            })
-            .finally(() => {setLoading(false)})
-        }
-
-        getFilms();
-    }, []);
+    const [isFetchedOnce, setIsFetchedOnce] = useState(false);
 
     const searchedFilms = useMemo(() => {
+        if (((withLocalStorage ? search.trim() !== "" : true) && !isFetchedOnce && !loading)) {
+            setLoading(true);
+            getMovies()
+                .then(res => {setState(res);
+                    // return Promise.reject(0);
+                }
+                )
+                .catch(err =>  setError("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз"))
+                .finally(() =>{ setLoading(false); setIsFetchedOnce(true)});
+            return [];
+        }
+
         if(loading || state.length === 0) {
             return []
         }
+
+        // проверка если выключен тумблер и поиск = ""
+        if (withLocalStorage && search.trim() === "") {
+            return []; // пропускаем итерацию, т.е. не добавляем фильм в filteredFilms
+        }
+         // проверка если включен тумблер и поиск = ""
+        // if ( (filter && search.trim() === "")) {
+        //     return []; // пропускаем итерацию, т.е. не добавляем фильм в filteredFilms
+        // }
+        
         const filteredFilms = [];
+
+        console.log("useSearchMovie", state)
+      
         state.forEach(element => {
             const nameRU = element.nameRU.toLowerCase();
             const nameEN = element.nameEN.toLowerCase();
@@ -36,6 +50,8 @@ export const useSearchMovie = (getMovies, withLocalStorage) => {
 
             const isInSearch = nameRU.includes(search.toLowerCase()) || nameEN.includes(search.toLowerCase())
             const isInShort = duration < 40;
+
+
 
             // проверка если включен тумблер и поиск = ""
             if(filter && !search && isInShort){
@@ -75,7 +91,7 @@ export const useSearchMovie = (getMovies, withLocalStorage) => {
         withLocalStorage && localStorage.setItem("filter", value)
     }, [])
 
-    const nothingFound = (!loading && state.length !== 0 && searchedFilms.length === 0);
+    const nothingFound = (!loading && isFetchedOnce && searchedFilms.length === 0 && search.trim().length);
 
     return {
         searchedFilms,
@@ -86,6 +102,7 @@ export const useSearchMovie = (getMovies, withLocalStorage) => {
         onFilter,
         setState,
         state,
-        nothingFound
+        nothingFound,
+        error
     }
 }

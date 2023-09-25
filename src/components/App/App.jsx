@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useState } from "react";
 
 import Header from "../Header";
 import Main from "../Main";
@@ -153,11 +153,19 @@ function App() {
                 />
                 <Route
                     path="/signin"
-                    element={<main><Login onLogin={onLogin} success={infoToolTip.success}/></main>}
+                    element={
+                        <ProtectedRoute flag={!isAuth || isLoading}>
+                            <main><Login onLogin={onLogin} success={infoToolTip.success}/></main>
+                        </ProtectedRoute>
+                        }
                 />
                 <Route
                     path="/signup"
-                    element={<main><Register onRegister={onRegister} success={infoToolTip.success}/></main>}
+                    element={
+                        <ProtectedRoute flag={!isAuth || isLoading}>
+                            <main><Register onRegister={onRegister} success={infoToolTip.success}/></main>
+                        </ProtectedRoute>
+                        }
                 />
                 <Route path="*" element={<main><NotFoundPage/></main>}/>
             </Routes>

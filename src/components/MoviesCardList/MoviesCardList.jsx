@@ -1,8 +1,7 @@
-import { useState } from "react";
 import MoviesCard from "../MoviesCard/MoviesCard";
 import Preloader from "../Preloader";
 
-function MoviesCardList({ moviesList, moviesRemain, loading , favorites, handleFavouriteChange, isFavouritesPage,handleClickMoreMovies }) {
+function MoviesCardList({ moviesList, moviesRemain, loading , favorites, handleFavouriteChange, isFavouritesPage, handleClickMoreMovies }) {
   return (
     <div className="cards">
       {loading ? (

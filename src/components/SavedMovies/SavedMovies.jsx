@@ -17,25 +17,25 @@ function SavedMovies() {
     state,
   } = useSearchMovie(api.getSaved.bind(api));
 
-  function handleFavouriteChange(event, data) {
-    const newFavourites = [...state];
+    function handleFavouriteChange(event, data) {
+      const newFavourites = [...state];
 
-    if(event === "DELETE") {
-        const index = newFavourites.findIndex((item) => item.movieId === data);
-        newFavourites.splice(index, 1);
-    }
-    else {
-        newFavourites.push(data)
-    }
+      if(event === "DELETE") {
+          const index = newFavourites.findIndex((item) => item.movieId === data);
+          newFavourites.splice(index, 1);
+      }
+      else {
+          newFavourites.push(data)
+      }
 
-    setState(newFavourites);
+      setState(newFavourites);
 
- 
-    // mainApi.getSaved().then((res) => {
-    //     setFavorites(res);
-    //     // localStorage.setItem("favourites", JSON.stringify(res));
-    // });
-}
+  
+      // mainApi.getSaved().then((res) => {
+      //     setFavorites(res);
+      //     // localStorage.setItem("favourites", JSON.stringify(res));
+      // });
+  }
 
   console.log(searchedFilms)
   return (

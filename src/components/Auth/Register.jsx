@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import logo from "../../images/logo.svg";
@@ -15,32 +16,35 @@ function Register({ onRegister, success }) {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setError({ ...error, [e.target.name]: e.target.validationMessage });
+    setError((prevError) => ({ ...prevError, [e.target.name]: e.target.validationMessage }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
-    onRegister(formData).then((isRedirect) => {
-      isRedirect && navigate("/movies");
+    onRegister(formData).then((isSuccess) => {
+      isSuccess && navigate("/movies");
     });
   };
+
+  const isButtonDisabled =
+    formData.name === "" || formData.email === "" || formData.password === "" || Object.values(error).some((errMsg) => errMsg !== "");
 
   return (
     <section className="auth">
       <Link to="/">
-        <img className="auth__logo link" src={logo} alt="Логотип"/>
+        <img className="auth__logo link" src={logo} alt="Логотип" />
       </Link>
       <h1 className="auth__title">Добро пожаловать!</h1>
       <form className="auth__form" onSubmit={handleSubmit}>
         <div className="auth__input-container">
-          <Input 
-            name="name" 
-            title="Имя" 
-            onChange={handleChange} 
+          <Input
+            name="name"
+            title="Имя"
+            onChange={handleChange}
             error={error.name}
             placeholder="Ваше имя"
-            required />
+            required
+          />
           <Input
             type="email"
             name="email"
@@ -49,8 +53,9 @@ function Register({ onRegister, success }) {
             error={error.email}
             placeholder="Ваш email"
             minLength={6}
-            maxLenght={30}
-            required />
+            maxLength={30}
+            required
+          />
           <Input
             type="password"
             name="password"
@@ -59,13 +64,20 @@ function Register({ onRegister, success }) {
             error={error.password}
             placeholder="Придумайте пароль"
             minLength={6}
-            maxLenght={30}
-            required />
+            maxLength={30}
+            required
+          />
         </div>
-        <button type="submit" className="auth__submit-register text_submit link">Зарегистрироваться</button>
+        <button
+          type="submit"
+          className="auth__submit-register text_submit link"
+          disabled={isButtonDisabled}
+        >
+          Зарегистрироваться
+        </button>
       </form>
       <div className="auth__link-container">
-        <p className="color_text">Уже зарегестрированны?</p>
+        <p className="color_text">Уже зарегистрированы?</p>
         <Link to="/signin" className="auth__link">
           Войти
         </Link>
@@ -75,3 +87,4 @@ function Register({ onRegister, success }) {
 }
 
 export default Register;
+

@@ -15,15 +15,21 @@ function Login({ onLogin, success }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onLogin(formData).then((isRedirect) => {
-      isRedirect && navigate("/movies");
-    });
+
+    const form = e.target;
+    if (form.checkValidity()) {
+      onLogin(formData).then((isRedirect) => {
+        isRedirect && navigate("/movies");
+      });
+    } else {
+      form.reportValidity();
+    }
   };
 
   return (
     <section className="auth">
       <Link to="/">
-        <img className="auth__logo link" src={logo} alt="Логотип" href="/"/>
+        <img className="auth__logo link" src={logo} alt="Логотип" href="/" />
       </Link>
       <h2 className="auth__title">Рады видеть!</h2>
       <form className="auth__form" onSubmit={handleSubmit}>
@@ -35,7 +41,7 @@ function Login({ onLogin, success }) {
             onChange={handleChange}
             error={error.email}
             placeholder="Ваш email"
-            value
+            required
           />
           <Input
             type="password"
@@ -45,8 +51,8 @@ function Login({ onLogin, success }) {
             error={error.password}
             placeholder="Введите пароль"
             minLength={6}
-            maxLenght={30}
-            value
+            maxLength={30}
+            required
           />
         </div>
         <button type="submit" className="auth__submit-login text_submit link">Войти</button>
@@ -62,3 +68,4 @@ function Login({ onLogin, success }) {
 }
 
 export default Login;
+
