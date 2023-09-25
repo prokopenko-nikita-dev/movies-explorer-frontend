@@ -1,6 +1,14 @@
 .movies {
-    max-width: 1280px;
-    width: 100%;
-    margin: 0 auto;
-  }
-  
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.movies__search-error-text {
+  justify-content: center;
+  display: flex;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}

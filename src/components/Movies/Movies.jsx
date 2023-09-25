@@ -128,12 +128,12 @@ function Movies() {
       }
 
       {
-        !loading && error && <p>{error}</p> 
+        !loading && error && <p className="movies__search-error-text">{error}</p> 
       }
       {
         !loading && !error && (
           nothingFound ? (
-            <p>Ничего не найдено</p>
+            <p className="movies__search-error-text">Ничего не найдено</p>
           ) : (
             <MoviesCardList
               moviesList={searchedFilms.slice(0, moviesShowed)}
