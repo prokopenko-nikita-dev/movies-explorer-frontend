@@ -9,17 +9,6 @@ class Api {
     };
   }
 
-  _handleResponse(response) {
-    return response.ok ? response.json() : Promise.reject("Ошибка - " + response.message);
-  }
-
-  async getMovies() {
-    const response = await fetch(`${this._moviesApi}/beatfilm-movies`, {
-      headers: this._headers,
-    });
-    return this._handleResponse(response);
-  }
-
   async updateUser({ name, email }) {
     const response = await  fetch(`${this._authApi}/users/me`, {
       method: "PATCH",

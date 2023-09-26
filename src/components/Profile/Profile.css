@@ -69,6 +69,20 @@
   line-height: normal;
 }
 
+.profile__submit {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.profile__submit_active {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.profile__submit_inactive {
+  opacity: 0.5 
+}
+
 .profile__submit:hover {
   text-shadow: rgb(0, 255, 149) 1px 0 10px;
 }
